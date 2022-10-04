@@ -16,11 +16,13 @@ void loop() {
   // put your main code here, to run repeatedly:
 aState= digitalRead(outputA);
 if (aState != aLastState){
-  if (digitalRead(outputB) != aState){
-    counter +=1;
+  if (digitalRead(outputB) != aState && aState == 1){
+    counter += 1;
   }
   else{
+    if (aState == 1){
     counter -=1;
+    }
   }
   Serial.print("Postion: ");
   Serial.println(counter);
